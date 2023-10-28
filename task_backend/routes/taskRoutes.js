@@ -4,14 +4,12 @@ import checkUserAuth from '../middlewares/auth-middleware.js';
 
 const router = express.Router();
 
-// Protect these routes with authentication middleware
-router.use(checkUserAuth);
 
-router.post('/create', taskController.createTask); // Create a new task
-router.get('/all', taskController.getAllTasks); // Get all tasks
-router.get('/completed', taskController.getCompletedTasks); // Get completed tasks
-router.get('/remaining', taskController.getRemainingTasks); // Get remaining tasks
-router.put('/update/:id', taskController.updateTask); // Update a task
-router.delete('/delete/:id', taskController.deleteTask); // Delete a task
+router.post('/create',checkUserAuth, taskController.createTask); // Create a new task
+router.get('/all',checkUserAuth, taskController.getAllTasks); // Get all tasks
+router.get('/completed',checkUserAuth, taskController.getCompletedTasks); // Get completed tasks
+router.get('/remaining',checkUserAuth, taskController.getRemainingTasks); // Get remaining tasks
+router.put('/update/:id',checkUserAuth, taskController.updateTask); // Update a task
+router.delete('/delete/:id',checkUserAuth, taskController.deleteTask); // Delete a task
 
 export default router;
