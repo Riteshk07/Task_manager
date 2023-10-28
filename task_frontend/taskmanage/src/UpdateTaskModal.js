@@ -14,7 +14,7 @@ const UpdateTaskModal = ({ task, onUpdate, onClose }) => {
   };
 
   return (
-    <div className="modal fade" id="updateTaskModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div className="modal fade" id={`modal${task._id}`} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div className="modal-content">
           <div className="modal-header">
